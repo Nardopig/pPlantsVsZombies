@@ -8,6 +8,7 @@ public class PeashooterList {
 
 	public PeashooterList(int tam) {
 		peas = new Peashooter[tam];
+		contador = 0;
 	}
 	
 	public void addPeashooter(Peashooter peashooter) {

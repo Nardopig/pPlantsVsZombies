@@ -1,10 +1,13 @@
 package logic.Objects;
 
 public class Zombie {
-	public int posx;
-	public int posy;
+	public int posX;
+	public int posY;
 	public int vida = 5;
 
-	public Zombie() {
+	public Zombie(int posX, int posY) {
+		this.posX=posX;
+		this.posY=posY;
+		
 	}
 }

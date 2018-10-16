@@ -6,8 +6,8 @@ public class ZombieList {
 	public Zombie[] zombies;
 	private int contador;
 
-	public ZombieList() {
-		zombies = new Zombie[20];
+	public ZombieList(int tam) {
+		zombies = new Zombie[tam];
 		contador = 0;
 	}
 	

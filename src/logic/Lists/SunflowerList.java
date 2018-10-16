@@ -6,8 +6,9 @@ public class SunflowerList {
 	public Sunflower[] sun;
     int contador;
     
-	public SunflowerList() {
-		sun = new Sunflower[20];
+	public SunflowerList(int tam) {
+		sun = new Sunflower[tam];
+		contador = 0;
 	}
 	
     public void addSunflower(Sunflower sunflower) {

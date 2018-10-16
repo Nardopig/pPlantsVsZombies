@@ -5,7 +5,10 @@ import java.util.Random;
 import logic.Lists.PeashooterList;
 import logic.Lists.SunflowerList;
 import logic.Lists.ZombieList;
+import logic.Objects.Peashooter;
+import logic.Objects.Sunflower;
 import logic.Objects.Zombie;
+
 
 public class Game {
 	private PeashooterList peaList;
@@ -19,13 +22,21 @@ public class Game {
 	public static int contador = 0;
 	public Game()
 	{
-		peaList = new PeashooterList(4);
-		sunList = new SunflowerList();
-		zomList = new ZombieList();
+		peaList = new PeashooterList(20);
+		sunList = new SunflowerList(20);
+		zomList = new ZombieList(20);
 	} 
 	
-	public void addZombie(Zombie zom) {
-		zomList.addZombie(zom);
+	public void addZombie(Zombie zombie) {
+		zomList.addZombie(zombie);
+	}
+	
+	public void addPeashooter(Peashooter peashooter) {
+		peaList.addPeashooter(peashooter);
+	}
+	
+	public void addSunflower(Sunflower sunflower) {
+		sunList.addSunflower(sunflower);
 	}
 	
 	/*
