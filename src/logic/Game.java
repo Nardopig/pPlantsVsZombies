@@ -2,6 +2,11 @@ package logic;
 
 import java.util.Random;
 
+import logic.Lists.PeashooterList;
+import logic.Lists.SunflowerList;
+import logic.Lists.ZombieList;
+import logic.Objects.Zombie;
+
 public class Game {
 	private PeashooterList peaList;
 	private SunflowerList  sunList;

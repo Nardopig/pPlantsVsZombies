@@ -2,7 +2,7 @@ package plantsVsZombies;
 
 import logic.Game;
 import logic.GamePrinter;
-import logic.Zombie;
+import logic.Objects.Zombie;
 
 public class Main {
 
