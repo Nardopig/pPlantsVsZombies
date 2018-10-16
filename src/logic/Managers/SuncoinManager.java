@@ -1,8 +1,10 @@
-package logic;
+package logic.Managers;
+
+import logic.Game;
 
 public class SuncoinManager {
 
-	int sunCoins;
+	public int sunCoins;
 	
 	public SuncoinManager(Game game,int suncoins)
 	{
@@ -21,5 +23,4 @@ public class SuncoinManager {
 	public void setSunCoins(int sunCoins) {
 		this.sunCoins = sunCoins;
 	}
-	
-	}
+}

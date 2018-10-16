@@ -3,16 +3,16 @@ package logic.Lists;
 import logic.Objects.Peashooter;
 
 public class PeashooterList {
-	public Peashooter[] peas;
-	private int contador;
+	public Peashooter[] peashooters;
+	public int contador;
 
 	public PeashooterList(int tam) {
-		peas = new Peashooter[tam];
+		peashooters = new Peashooter[tam];
 		contador = 0;
 	}
 	
 	public void addPeashooter(Peashooter peashooter) {
-		peas[contador] = peashooter;
+		peashooters[contador] = peashooter;
 		contador++;
 	}
 }

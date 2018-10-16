@@ -15,7 +15,6 @@ public class Game {
 	private SunflowerList  sunList;
 	private ZombieList zomList;
 	private Random rand;
-	public static int contCiclos, contSoles, contPea, contSun, contZom;
 	
 	// O CREAR EN LAS LISTAS METODOS QUE AUMENTEN EL CONTADOR Y CREEN OBJETOS CON PARAMETROS
 	
@@ -39,6 +38,37 @@ public class Game {
 		sunList.addSunflower(sunflower);
 	}
 	
+	public Sunflower getSFInPosition(int x, int y) {
+		Sunflower a = null;
+		for(int i = 0; i < sunList.contador; i++) {
+		if(sunList.sunflowers[i].posX == x && sunList.sunflowers[i].posY == y) {
+			a= sunList.sunflowers[i];
+		}
+		}
+		return a;
+	}
+	
+	public Peashooter getPSInPosition(int x, int y) {
+		Peashooter a = null;
+		for(int i = 0; i < peaList.contador; i++) {
+		if(peaList.peashooters[i].posX == x && peaList.peashooters[i].posY == y) {
+			a= peaList.peashooters[i];
+		}
+		}
+		return a;
+	}
+	
+	public Zombie getZInPosition(int x, int y) {
+		Zombie a = null;
+		for(int i = 0; i < sunList.contador; i++) {
+		if(zomList.zombies[i].posX == x && zomList.zombies[i].posY == y) {
+			a = zomList.zombies[i];
+		}
+		}
+		return a;
+	}
+	
+	
 	/*
 	public void generateZombie(ZombieList zL, int contZomb,int dificultad) {
 		rand = new Random(System.nanoTime());
@@ -56,12 +86,6 @@ public class Game {
 	}
 	*/
 	
-	
-	
-	private Object addZombie(int x, int y) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 	public int update() {

@@ -16,7 +16,6 @@ public class Main {
 		game.addZombie(zombie);
 		game.addPeashooter(peashooter);
 		game.addSunflower(sunflower);
-		
 	}
 
 }
