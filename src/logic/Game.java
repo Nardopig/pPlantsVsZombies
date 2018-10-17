@@ -1,13 +1,10 @@
 package logic;
 
 import java.util.Random;
+import logic.Lists.*;
+import logic.Managers.*;
+import logic.Objects.*;
 
-import logic.Lists.PeashooterList;
-import logic.Lists.SunflowerList;
-import logic.Lists.ZombieList;
-import logic.Objects.Peashooter;
-import logic.Objects.Sunflower;
-import logic.Objects.Zombie;
 
 
 public class Game {
@@ -15,12 +12,15 @@ public class Game {
 	private SunflowerList  sunList;
 	private ZombieList zomList;
 	private Random rand;
+	private ZombieManager zManager;
+	
 	
 	// O CREAR EN LAS LISTAS METODOS QUE AUMENTEN EL CONTADOR Y CREEN OBJETOS CON PARAMETROS
 	
 	public static int contador = 0;
 	public Game()
 	{
+		zManager = new ZombieManager();
 		peaList = new PeashooterList(20);
 		sunList = new SunflowerList(20);
 		zomList = new ZombieList(20);
@@ -66,6 +66,22 @@ public class Game {
 		}
 		}
 		return a;
+	}
+	
+	public void setLevel(int level) {
+		
+		switch(level) {
+		case 1:
+			zManager.setZombiesLeftToAppear(3);
+			break;
+		case 2:
+			zManager.setZombiesLeftToAppear(5);
+			break;
+		case 3:
+			zManager.setZombiesLeftToAppear(10);
+			break;
+		}
+		zManager.setFrecuencia(level/10);
 	}
 	
 	
