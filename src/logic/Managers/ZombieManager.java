@@ -7,16 +7,20 @@ public class ZombieManager {
 	Random rand;
 	double frecuencia;
 	
+	public ZombieManager(){
+		rand = new Random(System.nanoTime());	
+	}
+	
+	public int numAleatorio() {
+		return rand.nextInt(3);
+	}
+	
 	public double getFrecuencia() {
 		return frecuencia;
 	}
 
 	public void setFrecuencia(double frecuencia) {
 		this.frecuencia = frecuencia;
-	}
-
-	public ZombieManager(){
-		rand = new Random(System.nanoTime());	
 	}
 
 	public boolean isZombieAdded() {

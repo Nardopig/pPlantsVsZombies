@@ -13,21 +13,31 @@ public class Game {
 	private ZombieList zomList;
 	private Random rand;
 	private ZombieManager zManager;
+	private Level level;
+	public int contadorCiclos;
+	public static int columnas = 8;
+	public static int filas = 4;
 	
 	
 	// O CREAR EN LAS LISTAS METODOS QUE AUMENTEN EL CONTADOR Y CREEN OBJETOS CON PARAMETROS
 	
-	public static int contador = 0;
-	public Game()
+	public Game(Level level)
 	{
+		contadorCiclos = 0;
+		this.level = level;
 		zManager = new ZombieManager();
 		peaList = new PeashooterList(20);
 		sunList = new SunflowerList(20);
 		zomList = new ZombieList(20);
 	} 
 	
-	public void addZombie(Zombie zombie) {
-		zomList.addZombie(zombie);
+	
+	
+	public void addZombie() {
+		if (zManager.isZombieAdded()) {
+		int j = zManager.numAleatorio();
+		zomList.addZombie(new Zombie(7,j,this));
+		}
 	}
 	
 	public void addPeashooter(Peashooter peashooter) {
@@ -68,20 +78,21 @@ public class Game {
 		return a;
 	}
 	
-	public void setLevel(int level) {
-		
+	public void setLevel(Level level) {
 		switch(level) {
-		case 1:
+		case EASY:
 			zManager.setZombiesLeftToAppear(3);
+			zManager.setFrecuencia(0.1);
 			break;
-		case 2:
+		case MEDIUM:
 			zManager.setZombiesLeftToAppear(5);
+			zManager.setFrecuencia(0.2);
 			break;
-		case 3:
+		case HARD:
 			zManager.setZombiesLeftToAppear(10);
+			zManager.setFrecuencia(0.3);
 			break;
 		}
-		zManager.setFrecuencia(level/10);
 	}
 	
 	
@@ -106,7 +117,6 @@ public class Game {
 
 	public int update() {
 	 
-		
 		
 		return 0;
 	}

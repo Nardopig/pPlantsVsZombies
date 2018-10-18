@@ -1,7 +1,7 @@
 package control;
 
 import java.util.Scanner;
-
+import logic.Level;
 import logic.Game;
 
 public class Controller {
@@ -10,8 +10,8 @@ public class Controller {
 	boolean finish;
 	int zombiesLeftToAppear;
 	
-	public Controller() {
-		game = new Game();
+	public Controller(Level level) {
+		game = new Game(level);
 		in = new Scanner(System.in);
 		finish = false;
 	}
@@ -19,9 +19,6 @@ public class Controller {
 	
 	public void run()
 	{
-		System.out.println("Introduce la dificultad:");
-		int level = in.nextInt();
-		game.setLevel(level);
 		
 		while(!finish)
 		{
