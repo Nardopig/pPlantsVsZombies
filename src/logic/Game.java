@@ -13,24 +13,23 @@ public class Game {
 	private ZombieList zomList;
 	private Random rand;
 	private ZombieManager zManager;
+	private SuncoinManager sManager;
 	private Level level;
 	public int contadorCiclos;
 	public static int columnas = 8;
 	public static int filas = 4;
 	
 	
-	// O CREAR EN LAS LISTAS METODOS QUE AUMENTEN EL CONTADOR Y CREEN OBJETOS CON PARAMETROS
-	
 	public Game(Level level)
 	{
 		contadorCiclos = 0;
 		this.level = level;
+		sManager = new SuncoinManager(this);
 		zManager = new ZombieManager();
 		peaList = new PeashooterList(20);
 		sunList = new SunflowerList(20);
 		zomList = new ZombieList(20);
 	} 
-	
 	
 	
 	public void addZombie() {
@@ -96,23 +95,6 @@ public class Game {
 	}
 	
 	
-	/*
-	public void generateZombie(ZombieList zL, int contZomb,int dificultad) {
-		rand = new Random(System.nanoTime());
-		int x;
-		//dificultad 10,20,30;
-		if(dificultad < rand) {
-			x=7;
-		}
-		rand = new Random(System.nanoTime());
-		    int y=rand;
-		    
-			zomList[contZomb] = addZombie(x,y);
-		
-		
-	}
-	*/
-	
 
 
 	public int update() {
@@ -121,16 +103,58 @@ public class Game {
 		return 0;
 	}
 	
+	public PeashooterList getPeaList() {
+		return peaList;
+	}
+
+
+
+	public void setPeaList(PeashooterList peaList) {
+		this.peaList = peaList;
+	}
+
+
+
+	public SunflowerList getSunList() {
+		return sunList;
+	}
+
+
+
+	public void setSunList(SunflowerList sunList) {
+		this.sunList = sunList;
+	}
+
+
+
+	public ZombieList getZomList() {
+		return zomList;
+	}
+
+
+	public void setZomList(ZombieList zomList) {
+		this.zomList = zomList;
+	}
+
+
+	public ZombieManager getzManager() {
+		return zManager;
+	}
+
+
+	public void setzManager(ZombieManager zManager) {
+		this.zManager = zManager;
+	}
+
+
+	public SuncoinManager getsManager() {
+		return sManager;
+	}
+
+
+	public void setsManager(SuncoinManager sManager) {
+		this.sManager = sManager;
+	}
 	
-	
-	/*public boolean avanzar(int posx, int posy)
-	{
-		boolean puede=true;
-		int x=posx-1;
-		
-		verificarP(list,x,posy);
-		list.getlist();
-		return puede;
-	}*/
 
 }

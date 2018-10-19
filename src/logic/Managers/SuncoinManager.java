@@ -5,15 +5,16 @@ import logic.Game;
 public class SuncoinManager {
 
 	public int sunCoins;
+	Game game;
 	
-	public SuncoinManager(Game game,int suncoins)
+	public SuncoinManager(Game game)
 	{
-		  
+		  sunCoins = 50;
+		  this.game = game;
 	  }
 	
-	public int sumaMonedas() {
-		sunCoins = sunCoins; /*+ contSun*/
-		return 0;
+	public void sumaMonedas() {
+		sunCoins += 10; 
 	}
 	
 	public int getSunCoins() {

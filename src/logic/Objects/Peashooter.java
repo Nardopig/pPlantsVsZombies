@@ -15,32 +15,33 @@ public class Peashooter {
 
 	public Peashooter(int posX, int posY, Game game) {
 		this.game = game;
-		this.posX=posX;
-		this.posY=posY;
+		this.posX = posX;
+		this.posY =	posY;
 	}
 	
-	public void update(ZombieList zombies) {
-		disparar(zombies);
+	public void update() {
+		disparar();
 	}
 	
-	public void disparar(ZombieList zombies) {
+	public void disparar() {
 		int i = 0;
 		boolean encontrado = false;
+		ZombieList zList = game.getZomList();
 		if (isAlive()) {
-		while ( i<zombies.contador && !encontrado) {
-		    if (zombies.zombies[i].posY==this.posY) {
-		    	int j = posX + 1;
-		    	while ( j < 8 && !encontrado) {
-		    		if(zombies.zombies[i].posX == j && zombies.zombies[i].isAlive())
-		    			encontrado = true;
-		    		j++;
-		    	}
-		    }  
-		    i++;
+			while ( i<zList.contador && !encontrado) {
+			    if (zList.zombies[i].posY==this.posY) {
+			    	int j = posX + 1;
+			    	while ( j < 8 && !encontrado) {
+			    		if(zList.zombies[i].posX == j && zList.zombies[i].isAlive())
+			    			encontrado = true;
+			    		j++;
+			    	}
+			    }  
+			    i++;
 			}
 		}
 		if (encontrado)
-			zombies.zombies[i].vida --;
+			zList.zombies[i].vida --;
 	}
 	
 	public boolean isAlive() {

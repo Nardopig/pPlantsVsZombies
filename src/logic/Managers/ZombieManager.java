@@ -41,4 +41,6 @@ public class ZombieManager {
 	public void restarZombiesLeftToAppear() {
 		zombiesLeftToAppear--;
 	}
+	
+	
 }

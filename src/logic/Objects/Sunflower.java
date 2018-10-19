@@ -1,6 +1,7 @@
 package logic.Objects;
 
 import logic.Game;
+import logic.Managers.SuncoinManager;
 
 public class Sunflower {
 	public int posX;
@@ -16,16 +17,21 @@ public class Sunflower {
 		this.posY=posY;
 	}
 	
+	public void update() {
+		if (sunGenerator()) {
+			SuncoinManager sManager = game.getsManager();
+			sManager.sumaMonedas();
+		}
+	}
 	
-	
-	public boolean update() {
-	boolean generaSol = false;
+	public boolean sunGenerator() {
+	boolean sunGen = false;
 	int mod = turnoCreado%2;
 	if(isAlive()) {
 		if (game.contadorCiclos != turnoCreado && mod == game.contadorCiclos % 2)
-			generaSol = true;
+			sunGen = true;
 	}	
-	return generaSol;
+	return sunGen;
 	}
 	
 	public boolean isAlive() {
