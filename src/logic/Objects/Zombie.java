@@ -16,49 +16,49 @@ public class Zombie {
 		this.posY=posY;
 	}
 	
-	public boolean update(PeashooterList peashooter, SunflowerList sunflower) {
-			boolean ganaZombie = false;
+	public void update() {
 			boolean encontradoP = false;
 			boolean encontradoS = false;
 			
-			int i = posX-1;
-			int j = posY;
+			PeashooterList peashooter = game.getPeaList();
+			SunflowerList sunflower = game.getSunList();
+			
+			int posNext2Zombie = posX-1;
+			
 			if (isAlive()) {
-				if (i > 0) {
-					int o = 0;
-					int p = 0;
-					while(o < peashooter.contador && !encontradoP) {
-						if (peashooter.peashooters[o].posY == this.posY) {
-							if (peashooter.peashooters[o].posX == i && peashooter.peashooters[i].isAlive()) {
+				if (posNext2Zombie > 0) {
+					int i = 0;
+					while(i < peashooter.contador && !encontradoP) {
+						if (peashooter.peashooters[i].posY == posY) {
+							if (peashooter.peashooters[i].posX == posNext2Zombie && peashooter.peashooters[i].isAlive()) {
 								encontradoP = true;
 							}
 						}
-						o++;
+						i++;
 					}
-					
-					while(p < sunflower.contador && !encontradoS) {
-						if (sunflower.sunflowers[p].posY == this.posY) {
-							if(sunflower.sunflowers[p].posX == i && sunflower.sunflowers[p].isAlive()) {
+					int j = 0;
+					while(j < sunflower.contador && !encontradoS) {
+						if (sunflower.sunflowers[j].posY == posY) {
+							if(sunflower.sunflowers[j].posX == posNext2Zombie && sunflower.sunflowers[j].isAlive()) {
 								encontradoS = true;
 							}
 						}
-						p++;
+						j++;
 					}
 					
 					if(!encontradoP && !encontradoS)
 						posX--;
 					else if (encontradoP)
-						peashooter.peashooters[o].vida --;
+						peashooter.peashooters[i-1].vida --;
 					else if (encontradoS)
-						sunflower.sunflowers[p].vida --;	
+						sunflower.sunflowers[j-1].vida --;	
 				}
-				else if (i == 0) {
-					ganaZombie=true;
-				}	
 			}
-			return ganaZombie;
 	}
 	
+	public boolean ganaZombie() {
+		 return (posX-1 == 0);
+	}
 	
 	
 	public boolean isAlive() {

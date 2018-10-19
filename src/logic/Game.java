@@ -94,13 +94,24 @@ public class Game {
 		}
 	}
 	
+	public void update() {
+	 for(int i = 0;i<zomList.contador;i++) {
+		 zomList.zombies[i].update();
+	 }
+	 for(int i = 0;i<sunList.contador;i++) {
+		 sunList.sunflowers[i].update();
+	 }
+	 for(int i = 0;i<peaList.contador;i++) {
+		 peaList.peashooters[i].update();
+	 }
+	}
 	
-
-
-	public int update() {
-	 
-		
-		return 0;
+	public boolean compraPeashooter() {
+		return true;
+	}
+	
+	public boolean compraSunflower() {
+		return true;
 	}
 	
 	public PeashooterList getPeaList() {

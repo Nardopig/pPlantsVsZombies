@@ -19,7 +19,7 @@ public class ZombieList {
 	
 	public void eliminateZombies(Peashooter peashooter) {
 		for(int i = 0;i<contador;i++) {
-		if (zombies[i].vida == 0) {
+		if (!zombies[i].isAlive()) {
 			for(int j = contador; j > i;j--) {
 				zombies[j-1]= zombies[j];
 			}

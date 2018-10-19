@@ -1,5 +1,6 @@
 package logic.Lists;
 
+import logic.Objects.Peashooter;
 import logic.Objects.Sunflower;
 
 public class SunflowerList {
@@ -16,6 +17,15 @@ public class SunflowerList {
         contador++;
 	}
     
-  
+    public void eliminateSunflower(Sunflower sunflower) {
+		for(int i = 0;i<contador;i++) {
+		if (!sunflowers[i].isAlive()) {
+			for(int j = contador; j > i;j--) {
+				sunflowers[j-1]= sunflowers[j];
+			}
+			contador--;
+		}
+		}
+	}
 	
 }

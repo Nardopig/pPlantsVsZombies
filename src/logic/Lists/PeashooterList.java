@@ -18,7 +18,7 @@ public class PeashooterList {
 	
 	public void eliminatePeashooter(Peashooter peashooter) {
 		for(int i = 0;i<contador;i++) {
-		if (peashooters[i].vida == 0) {
+		if (!peashooters[i].isAlive()) {
 			for(int j = contador; j > i;j--) {
 				peashooters[j-1]= peashooters[j];
 			}
