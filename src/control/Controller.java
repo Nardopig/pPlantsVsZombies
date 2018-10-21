@@ -25,8 +25,7 @@ public class Controller {
 	public void run()
 	{
 		while(!finish) {
-		int x,y;
-		char a,b,c;
+		game.update();
 		System.out.println("Number of cycles: "+ game.cycleCount);
 		System.out.println("Sun coins: "+ game.getSuncoins());
 		System.out.println("Remaining zombies: " + game.getZombiesLeftToAppear());
@@ -46,10 +45,6 @@ public class Controller {
 		}
 	}
 
-		
-		
-		
-	
 	private void comandExe() {
 	System.out.print("Command > ");
 	String comando;

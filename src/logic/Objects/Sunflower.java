@@ -27,7 +27,7 @@ public class Sunflower {
 	
 	public boolean generateSun() {
 	boolean sunGen = false;
-	int mod = turnoCreado%2;
+	int mod = (turnoCreado)%2;
 	if(isAlive()) {
 		if (game.cycleCount != turnoCreado && mod == game.cycleCount % 2)
 			sunGen = true;

@@ -69,7 +69,7 @@ public class Zombie {
 	}
 	
 	public boolean shouldMove() {
-		return (turnoCreado != game.cycleCount && (turnoCreado + 1) %2 == game.cycleCount %2);
+		return (turnoCreado != game.cycleCount && (turnoCreado) %2 == game.cycleCount %2);
 	}
 	
 	public boolean zombieWon() {

@@ -163,11 +163,11 @@ public class Game {
 		for(int i = 0;i<sunList.contador;i++) {
 			 sunList.sunflowers[i].update();
 		 }
-		 for(int i = 0;i<sunList.contador;i++) {
-			 sunList.sunflowers[i].update();
-		 }
 		 for(int i = 0;i<peaList.contador;i++) {
 			 peaList.peashooters[i].update();
+		 }
+		 for(int i = 0;i<zomList.contador;i++) {
+			 zomList.zombies[i].update();
 		 }
 	}
 	
