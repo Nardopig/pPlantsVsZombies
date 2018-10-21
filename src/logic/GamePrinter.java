@@ -18,14 +18,17 @@ public class GamePrinter {
 		board = new String[dimX][dimY];
 		for(int i = 0; i < dimX; i++) {
 			for(int j = 0; j < dimY; j++) {
-
-				board[i][j] =  space;
-				//rellenar
 				
+				if(game.isZInPosition(i, j)) 
+					board[i][j] =  "Z[" + game.getZInPosition(i, j).vida + "]";
+				else if (game.isSFInPosition(i, j))
+					board[i][j] =  "S[" + game.getSFInPosition(i, j).vida + "]";
+				else if (game.isPSInPosition(i, j))
+					board[i][j] =  "P[" + game.getPSInPosition(i, j).vida + "]";
+				else 
+					board[i][j] =  space;
 			}
 		}
-		
-		board[0][3] = "s[2]";
 	}
 	
 	public String toString() {
@@ -35,7 +38,7 @@ public class GamePrinter {
 		String vDelimiter = "|";
 		String hDelimiter = "-";
 		
-		String rowDelimiter = MyStringUtils.repeat(hDelimiter, (dimY * (cellSize + 1)) - 1);
+		String rowDelimiter = MyStringUtils.repeat(hDelimiter, (dimX * (cellSize + 1)) - 1);
 		String margin = MyStringUtils.repeat(space, marginSize);
 		String lineDelimiter = String.format("%n%s%s%n", margin + space, rowDelimiter);
 		
@@ -43,9 +46,9 @@ public class GamePrinter {
 		
 		str.append(lineDelimiter);
 		
-		for(int i=0; i<dimX; i++) {
+		for (int j=0; j<dimY; j++) {
 				str.append(margin).append(vDelimiter);
-				for (int j=0; j<dimY; j++) {
+				for(int i=0; i<dimX; i++) {
 					str.append( MyStringUtils.centre(board[i][j], cellSize)).append(vDelimiter);
 				}
 				str.append(lineDelimiter);

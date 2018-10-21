@@ -16,14 +16,15 @@ public class PeashooterList {
 		contador++;
 	}
 	
-	public void eliminatePeashooter(Peashooter peashooter) {
-		for(int i = 0;i<contador;i++) {
-		if (!peashooters[i].isAlive()) {
-			for(int j = contador; j > i;j--) {
-				peashooters[j-1]= peashooters[j];
+	public void eliminatePeashooter(int i) {
+		int j = contador;
+		peashooters[j-1]=null;
+			if(contador > 1) {
+				while(j > i) {
+					peashooters[j-1]= peashooters[j];
+					j--;
 			}
-			contador--;
 		}
-		}
+				contador--;
 	}
 }

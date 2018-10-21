@@ -3,7 +3,7 @@ package logic.Managers;
 import java.util.Random;
 
 public class ZombieManager {
-	int zombiesLeftToAppear;
+	public int zombiesLeftToAppear;
 	Random rand;
 	double frecuencia;
 	
@@ -26,7 +26,6 @@ public class ZombieManager {
 	public boolean isZombieAdded() {
 		double x;
 		x = rand.nextDouble();
-		
 		return (zombiesLeftToAppear > 0 && x < frecuencia);			
 	}
 	

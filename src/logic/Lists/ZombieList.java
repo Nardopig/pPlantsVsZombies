@@ -17,14 +17,16 @@ public class ZombieList {
 		contador++;
 	}
 	
-	public void eliminateZombies(Peashooter peashooter) {
-		for(int i = 0;i<contador;i++) {
-		if (!zombies[i].isAlive()) {
-			for(int j = contador; j > i;j--) {
-				zombies[j-1]= zombies[j];
+	public void eliminateZombies(int i) {
+		int j = contador;
+		zombies[j-1]=null;
+			if(contador > 1) {
+				while(j > i) {
+					zombies[j-1]= zombies[j];
+					j--;
 			}
-			contador--;
 		}
-		}
+				contador--;
 	}
+		
 }

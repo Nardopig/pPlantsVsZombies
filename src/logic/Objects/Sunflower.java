@@ -12,23 +12,24 @@ public class Sunflower {
 	private Game game;
 
 	public Sunflower(int posX, int posY, Game game) {
+		turnoCreado = game.cycleCount;
 		this.game = game;
 		this.posX=posX;
 		this.posY=posY;
 	}
 	
 	public void update() {
-		if (sunGenerator()) {
+		if (generateSun()) {
 			SuncoinManager sManager = game.getsManager();
 			sManager.sumaMonedas();
 		}
 	}
 	
-	public boolean sunGenerator() {
+	public boolean generateSun() {
 	boolean sunGen = false;
 	int mod = turnoCreado%2;
 	if(isAlive()) {
-		if (game.contadorCiclos != turnoCreado && mod == game.contadorCiclos % 2)
+		if (game.cycleCount != turnoCreado && mod == game.cycleCount % 2)
 			sunGen = true;
 	}	
 	return sunGen;

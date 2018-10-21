@@ -17,15 +17,16 @@ public class SunflowerList {
         contador++;
 	}
     
-    public void eliminateSunflower(Sunflower sunflower) {
-		for(int i = 0;i<contador;i++) {
-		if (!sunflowers[i].isAlive()) {
-			for(int j = contador; j > i;j--) {
-				sunflowers[j-1]= sunflowers[j];
+    public void eliminateSunflower(int i) {
+    	int j = contador;
+		sunflowers[j-1]=null;
+			if(contador > 1) {
+				while(j > i) {
+					sunflowers[j-1]= sunflowers[j];
+					j--;
 			}
-			contador--;
 		}
-		}
+				contador--;
 	}
 	
 }

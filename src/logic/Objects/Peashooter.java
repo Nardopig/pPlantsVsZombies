@@ -11,9 +11,11 @@ public class Peashooter {
 	public final int damage = 1;
 	public final int coste = 50;
 	private Game game;
+	public int turnoCreado;
 	
 
 	public Peashooter(int posX, int posY, Game game) {
+		turnoCreado = game.cycleCount;
 		this.game = game;
 		this.posX = posX;
 		this.posY =	posY;
@@ -40,8 +42,11 @@ public class Peashooter {
 			    i++;
 			}
 		}
-		if (encontrado)
-			zList.zombies[i].vida --;
+		if (encontrado && turnoCreado != zList.zombies[i-1].turnoCreado ) {
+			zList.zombies[i-1].vida --;
+		if(!zList.zombies[i-1].isAlive())
+		zList.eliminateZombies(i-1);
+		}
 	}
 	
 	public boolean isAlive() {
