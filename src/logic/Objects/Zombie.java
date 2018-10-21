@@ -53,12 +53,13 @@ public class Zombie {
                         posX--;
                 } else if (encontradoP) {
                     peashooter.peashooters[i - 1].vida--;
-                    turnoCreado = game.cycleCount;
+                    turnoCreado = game.cycleCount - 1;
                     if (!peashooter.peashooters[i - 1].isAlive())
                         peashooter.eliminatePeashooter(i - 1);
                 } else if (encontradoS) {
                     sunflower.sunflowers[j - 1].vida--;
-                    turnoCreado = game.cycleCount;
+                    turnoCreado = game.cycleCount - 1
+                    		;
                     if (!sunflower.sunflowers[j - 1].isAlive())
                         sunflower.eliminateSunflower(j - 1);
                 }
