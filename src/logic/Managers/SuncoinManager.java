@@ -12,7 +12,7 @@ public class SuncoinManager {
     public SuncoinManager(Game game) {
         sunCoins = 50;
         precioPeashooter = 50;
-        precioSunflower = 50;
+        precioSunflower = 20;
         this.game = game;
     }
 

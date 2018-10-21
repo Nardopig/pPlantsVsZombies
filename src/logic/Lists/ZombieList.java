@@ -17,15 +17,13 @@ public class ZombieList {
     }
 
     public void eliminateZombies(int i) {
-        int j = contador;
-        zombies[j - 1] = null;
+        zombies[i] = null;
         if (contador > 1) {
-            while (j > i) {
-                zombies[j - 1] = zombies[j];
-                j--;
+            while (i < contador) {
+                zombies[i] = zombies[i + 1];
+                i++;
             }
         }
         contador--;
     }
-
 }
