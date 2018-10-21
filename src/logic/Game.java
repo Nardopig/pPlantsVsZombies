@@ -9,31 +9,24 @@ import logic.Objects.Peashooter;
 import logic.Objects.Sunflower;
 import logic.Objects.Zombie;
 
-import java.util.Random;
-
 
 public class Game {
     private PeashooterList peaList;
     private SunflowerList sunList;
     private ZombieList zomList;
-    private Random rand;
     private ZombieManager zManager;
     private SuncoinManager sManager;
-    private Level level;
     private GamePrinter gamePrinter;
     public int cycleCount;
-    public static int columnas = 8;
-    public static int filas = 4;
-
 
     public Game(Level level) {
         cycleCount = 0;
-        this.level = level;
         sManager = new SuncoinManager(this);
         zManager = new ZombieManager();
         peaList = new PeashooterList(20);
         sunList = new SunflowerList(20);
         zomList = new ZombieList(20);
+        setLevel(level);
     }
 
     public boolean userWon() {

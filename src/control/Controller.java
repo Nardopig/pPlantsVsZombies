@@ -16,7 +16,6 @@ public class Controller {
     public Controller(Level level) {
         this.level = level;
         game = new Game(level);
-        game.setLevel(level);
         in = new Scanner(System.in);
         finish = false;
     }

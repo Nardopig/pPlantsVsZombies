@@ -15,7 +15,7 @@ public class SunflowerList {
         sunflowers[contador] = sunflower;
         contador++;
     }
-    
+
     public void eliminateSunflower(int i) {
         sunflowers[i] = null;
         if (contador > 1) {
