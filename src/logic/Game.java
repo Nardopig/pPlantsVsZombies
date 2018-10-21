@@ -45,7 +45,7 @@ public class Game {
         for (int i = 0; i < zomList.zombies.length; i++) {
             if (zomList.zombies[i] != null && zomList.zombies[i].zombieWon()) {
                 zombiesWon = true;
-                continue;
+                break;
             }
         }
 
