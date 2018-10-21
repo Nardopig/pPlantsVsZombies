@@ -83,6 +83,7 @@ public class Controller {
                 break;
             default:
                 badCommand();
+                break;
 
         }
     }
@@ -122,13 +123,43 @@ public class Controller {
 
     private void addPlant(StringTokenizer tokenizer) {
         String plant = tokenizer.nextToken();
+
         int i = Integer.valueOf(tokenizer.nextToken());
         int j = Integer.valueOf(tokenizer.nextToken());
 
-        if (plant.equals("p")) {
-            game.addPeashooter(i, j);
-        } else if (plant.equals("s")) {
-            game.addSunflower(i, j);
+        boolean validPosition = validPosition(i, j);
+
+        if (validPosition) {
+            switch (plant) {
+                case "p":
+                    game.addPeashooter(i, j);
+                    return;
+                case "s":
+                    game.addSunflower(i, j);
+                    return;
+                default:
+                    invalidObject();
+                    comandExe();
+                    break;
+            }
+        }else{
+            comandExe();
         }
+
+    }
+
+    private boolean validPosition(int i, int j) {
+        if ((i < 0 || i > 7) || (j < 0 || j > 3)) {
+            System.out.println("Invalid position");
+            System.out.println();
+            return false;
+        }
+
+        return true;
+    }
+
+    private void invalidObject() {
+        System.out.println("Invalid object");
+        System.out.println();
     }
 }
