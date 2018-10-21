@@ -42,9 +42,9 @@ public class Controller {
         }
         System.out.println("Game Over");
         if (game.computerWon())
-            System.out.println("Player wins!");
-        else if (game.userWon())
             System.out.println("Computer wins!");
+        else if (game.userWon())
+            System.out.println("Player wins!");
     }
 
     private void comandExe() {
