@@ -20,7 +20,7 @@ public class SunflowerList {
         sunflowers[i] = null;
         if (contador > 1) {
             while (i < contador) {
-                sunflowers[i] = sunflowers[i];
+                sunflowers[i] = sunflowers[i + 1];
                 i++;
             }
         }

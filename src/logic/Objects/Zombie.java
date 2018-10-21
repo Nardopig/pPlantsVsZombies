@@ -25,14 +25,14 @@ public class Zombie {
         PeashooterList peashooter = game.getPeaList();
         SunflowerList sunflower = game.getSunList();
 
-        int posNext2Zombie = posX - 1;
+        int posNext2Zombie = posY - 1;
 
         if (isAlive()) {
             if (posNext2Zombie >= 0) {
                 int i = 0;
                 while (i < peashooter.contador && !encontradoP) {
-                    if (peashooter.peashooters[i].posY == posY) {
-                        if (peashooter.peashooters[i].posX == posNext2Zombie && peashooter.peashooters[i].isAlive()) {
+                    if (peashooter.peashooters[i].posX == posX) {
+                        if (peashooter.peashooters[i].posY == posNext2Zombie && peashooter.peashooters[i].isAlive()) {
                             encontradoP = true;
                         }
                     }
@@ -40,8 +40,8 @@ public class Zombie {
                 }
                 int j = 0;
                 while (j < sunflower.contador && !encontradoS) {
-                    if (sunflower.sunflowers[j].posY == posY) {
-                        if (sunflower.sunflowers[j].posX == posNext2Zombie && sunflower.sunflowers[j].isAlive()) {
+                    if (sunflower.sunflowers[j].posX == posX) {
+                        if (sunflower.sunflowers[j].posY == posNext2Zombie && sunflower.sunflowers[j].isAlive()) {
                             encontradoS = true;
                         }
                     }
@@ -50,7 +50,7 @@ public class Zombie {
 
                 if (!encontradoP && !encontradoS) {
                     if (shouldMove())
-                        posX--;
+                        posY--;
                 } else if (encontradoP) {
                     peashooter.peashooters[i - 1].vida--;
                     turnoCreado = game.cycleCount - 1;
@@ -58,8 +58,7 @@ public class Zombie {
                         peashooter.eliminatePeashooter(i - 1);
                 } else if (encontradoS) {
                     sunflower.sunflowers[j - 1].vida--;
-                    turnoCreado = game.cycleCount - 1
-                    		;
+                    turnoCreado = game.cycleCount - 1;
                     if (!sunflower.sunflowers[j - 1].isAlive())
                         sunflower.eliminateSunflower(j - 1);
                 }
@@ -72,7 +71,7 @@ public class Zombie {
     }
 
     public boolean zombieWon() {
-        return posX == 0 && shouldMove();
+        return posY == 0 && shouldMove();
     }
 
 

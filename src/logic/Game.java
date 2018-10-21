@@ -20,6 +20,10 @@ public class Game {
     private SuncoinManager sManager;
     private GamePrinter gamePrinter;
     private Random rand;
+
+    public final int LINES = 4;
+    public final int ROWS = 8;
+
     public int cycleCount;
 
     public Game(Level level) {
@@ -51,7 +55,7 @@ public class Game {
 
 
     public String toString() {
-        gamePrinter = new GamePrinter(this, 8, 4);
+        gamePrinter = new GamePrinter(this, LINES, ROWS);
         return gamePrinter.toString();
     }
 
@@ -66,80 +70,80 @@ public class Game {
 
     public void addZombie() {
         if (zManager.isZombieAdded()) {
-            int j = rand.nextInt(4);
-            zomList.addZombie(new Zombie(7, j, this));
+            int randomLine = rand.nextInt(LINES);
+            zomList.addZombie(new Zombie(randomLine, ROWS - 1, this));
             zManager.zombiesLeftToAppear--;
         }
     }
 
-    public void addPeashooter(int i, int j) {
+    public void addPeashooter(int line, int row) {
         if (sManager.posibleCompraPeashooter()) {
             sManager.compraPeashooter();
-            peaList.addPeashooter(new Peashooter(i, j, this));
+            peaList.addPeashooter(new Peashooter(line, row, this));
         }
     }
 
-    public void addSunflower(int i, int j) {
+    public void addSunflower(int line, int row) {
         if (sManager.posibleCompraSunflower()) {
             sManager.compraSunflower();
-            sunList.addSunflower(new Sunflower(i, j, this));
+            sunList.addSunflower(new Sunflower(line, row, this));
         }
     }
 
-    public Sunflower getSFInPosition(int x, int y) {
+    public Sunflower getSFInPosition(int line, int row) {
         Sunflower a = null;
         for (int i = 0; i < sunList.contador; i++) {
-            if (sunList.sunflowers[i].posX == x && sunList.sunflowers[i].posY == y) {
+            if (sunList.sunflowers[i].posX == line && sunList.sunflowers[i].posY == row) {
                 a = sunList.sunflowers[i];
             }
         }
         return a;
     }
 
-    public Peashooter getPSInPosition(int x, int y) {
+    public Peashooter getPSInPosition(int line, int row) {
         Peashooter a = null;
         for (int i = 0; i < peaList.contador; i++) {
-            if (peaList.peashooters[i].posX == x && peaList.peashooters[i].posY == y) {
+            if (peaList.peashooters[i].posX == line && peaList.peashooters[i].posY == row) {
                 a = peaList.peashooters[i];
             }
         }
         return a;
     }
 
-    public Zombie getZInPosition(int x, int y) {
+    public Zombie getZInPosition(int line, int row) {
         Zombie a = null;
         for (int i = 0; i < zomList.contador; i++) {
-            if (zomList.zombies[i].posX == x && zomList.zombies[i].posY == y) {
+            if (zomList.zombies[i].posX == line && zomList.zombies[i].posY == row) {
                 a = zomList.zombies[i];
             }
         }
         return a;
     }
 
-    public boolean isZInPosition(int x, int y) {
+    public boolean isZInPosition(int line, int row) {
         boolean found = false;
         for (int i = 0; i < zomList.contador; i++) {
-            if (zomList.zombies[i].posX == x && zomList.zombies[i].posY == y) {
+            if (zomList.zombies[i].posX == line && zomList.zombies[i].posY == row) {
                 found = true;
             }
         }
         return found;
     }
 
-    public boolean isSFInPosition(int x, int y) {
+    public boolean isSFInPosition(int line, int row) {
         boolean found = false;
         for (int i = 0; i < sunList.contador; i++) {
-            if (sunList.sunflowers[i].posX == x && sunList.sunflowers[i].posY == y) {
+            if (sunList.sunflowers[i].posX == line && sunList.sunflowers[i].posY == row) {
                 found = true;
             }
         }
         return found;
     }
 
-    public boolean isPSInPosition(int x, int y) {
+    public boolean isPSInPosition(int line, int row) {
         boolean found = false;
         for (int i = 0; i < peaList.contador; i++) {
-            if (peaList.peashooters[i].posX == x && peaList.peashooters[i].posY == y) {
+            if (peaList.peashooters[i].posX == line && peaList.peashooters[i].posY == row) {
                 found = true;
             }
         }

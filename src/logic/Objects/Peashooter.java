@@ -30,10 +30,10 @@ public class Peashooter {
         ZombieList zList = game.getZomList();
         if (isAlive()) {
             while (i < zList.contador && !encontrado) {
-                if (zList.zombies[i].posY == this.posY) {
-                    int j = posX + 1;
-                    while (j < 8 && !encontrado) {
-                        if (zList.zombies[i].posX == j && zList.zombies[i].isAlive())
+                if (zList.zombies[i].posX == this.posX) {
+                    int j = posY + 1;
+                    while (j < game.ROWS && !encontrado) {
+                        if (zList.zombies[i].posY == j && zList.zombies[i].isAlive())
                             encontrado = true;
                         j++;
                     }

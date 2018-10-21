@@ -16,7 +16,6 @@ public class PeashooterList {
         contador++;
     }
 
-
     public void eliminatePeashooter(int i) {
         peashooters[i] = null;
         if (contador > 1) {

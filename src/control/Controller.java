@@ -124,18 +124,18 @@ public class Controller {
     private void addPlant(StringTokenizer tokenizer) {
         String plant = tokenizer.nextToken();
 
-        int i = Integer.valueOf(tokenizer.nextToken());
-        int j = Integer.valueOf(tokenizer.nextToken());
+        int line = Integer.valueOf(tokenizer.nextToken());
+        int row = Integer.valueOf(tokenizer.nextToken());
 
-        boolean validPosition = validPosition(i, j);
+        boolean validPosition = validPosition(line, row);
 
         if (validPosition) {
             switch (plant) {
                 case "p":
-                    game.addPeashooter(i, j);
+                    game.addPeashooter(line, row);
                     return;
                 case "s":
-                    game.addSunflower(i, j);
+                    game.addSunflower(line, row);
                     return;
                 default:
                     invalidObject();
@@ -148,8 +148,8 @@ public class Controller {
 
     }
 
-    private boolean validPosition(int i, int j) {
-        if ((i < 0 || i > 7) || (j < 0 || j > 3)) {
+    private boolean validPosition(int line, int row) {
+        if ((line < 0 || line > game.LINES) || (row < 0 || row > game.ROWS)) {
             System.out.println("Invalid position");
             System.out.println();
             return false;
