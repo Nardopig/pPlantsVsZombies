@@ -40,6 +40,11 @@ public class Controller {
                 game.cycleCount++;
             }
         }
+        	System.out.println("Game Over");
+        	if (game.computerWon())
+        		System.out.println("Player wins!");
+        	else if(game.userWon())
+        		System.out.println("Computer wins!");
     }
 
     private void comandExe() {
@@ -80,7 +85,6 @@ public class Controller {
     }
 
     private void exit() {
-        System.out.println("Game Over");
         finish = true;
     }
 
