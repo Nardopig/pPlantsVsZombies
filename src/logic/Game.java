@@ -41,11 +41,15 @@ public class Game {
     }
 
     public boolean computerWon() {
-        int i = 0;
-        while (i < zomList.contador && !zomList.zombies[i].zombieWon()) {
-            i++;
+        boolean zombiesWon = false;
+        for (int i = 0; i < zomList.zombies.length; i++) {
+            if (zomList.zombies[i] != null && zomList.zombies[i].zombieWon()) {
+                zombiesWon = true;
+                continue;
+            }
         }
-        return (zomList.contador > 0 && zomList.zombies[i - 1].zombieWon());
+
+        return zombiesWon;
     }
 
 

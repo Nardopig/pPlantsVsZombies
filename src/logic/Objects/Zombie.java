@@ -28,7 +28,7 @@ public class Zombie {
         int posNext2Zombie = posX - 1;
 
         if (isAlive()) {
-            if (posNext2Zombie > 0) {
+            if (posNext2Zombie >= 0) {
                 int i = 0;
                 while (i < peashooter.contador && !encontradoP) {
                     if (peashooter.peashooters[i].posY == posY) {
@@ -71,7 +71,7 @@ public class Zombie {
     }
 
     public boolean zombieWon() {
-        return (posX == 0);
+        return posX == 0 && shouldMove();
     }
 
 
