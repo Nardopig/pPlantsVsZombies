@@ -92,6 +92,7 @@ public class Controller {
         System.out.println("Help: Prints this help message.");
         System.out.println("Exit: Terminates the program.");
         System.out.println("[none]: Skips cycle.");
+        comandExe();
     }
 
     private void reset() {
@@ -102,6 +103,7 @@ public class Controller {
     private void list() {
         System.out.println("[S]unflower: Cost: 20 suncoins Harm: 0");
         System.out.println("[P]eashooter: Cost: 50 suncoins Harm: 1");
+        comandExe();
     }
 
     private void addPlant(StringTokenizer tokenizer) {
