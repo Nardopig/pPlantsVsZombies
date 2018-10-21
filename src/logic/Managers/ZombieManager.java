@@ -11,10 +11,6 @@ public class ZombieManager {
         rand = new Random(System.nanoTime());
     }
 
-    public int numAleatorio() {
-        return rand.nextInt(3);
-    }
-
     public double getFrecuencia() {
         return frecuencia;
     }
@@ -24,8 +20,7 @@ public class ZombieManager {
     }
 
     public boolean isZombieAdded() {
-        double x;
-        x = rand.nextDouble();
+        double x = rand.nextDouble();
         return (zombiesLeftToAppear > 0 && x < frecuencia);
     }
 

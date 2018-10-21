@@ -9,6 +9,8 @@ import logic.Objects.Peashooter;
 import logic.Objects.Sunflower;
 import logic.Objects.Zombie;
 
+import java.util.Random;
+
 
 public class Game {
     private PeashooterList peaList;
@@ -17,6 +19,7 @@ public class Game {
     private ZombieManager zManager;
     private SuncoinManager sManager;
     private GamePrinter gamePrinter;
+    private Random rand;
     public int cycleCount;
 
     public Game(Level level) {
@@ -26,6 +29,7 @@ public class Game {
         peaList = new PeashooterList(20);
         sunList = new SunflowerList(20);
         zomList = new ZombieList(20);
+        rand = new Random(System.nanoTime());
         setLevel(level);
     }
 
@@ -62,7 +66,7 @@ public class Game {
 
     public void addZombie() {
         if (zManager.isZombieAdded()) {
-            int j = zManager.numAleatorio();
+            int j = rand.nextInt(4);
             zomList.addZombie(new Zombie(7, j, this));
             zManager.zombiesLeftToAppear--;
         }
