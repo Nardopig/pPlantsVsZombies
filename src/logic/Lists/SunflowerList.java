@@ -15,14 +15,13 @@ public class SunflowerList {
         sunflowers[contador] = sunflower;
         contador++;
     }
-
+    
     public void eliminateSunflower(int i) {
-        int j = contador;
-        sunflowers[j - 1] = null;
+        sunflowers[i] = null;
         if (contador > 1) {
-            while (j > i) {
-                sunflowers[j - 1] = sunflowers[j];
-                j--;
+            while (i < contador) {
+                sunflowers[i] = sunflowers[i];
+                i++;
             }
         }
         contador--;

@@ -15,14 +15,14 @@ public class PeashooterList {
         peashooters[contador] = peashooter;
         contador++;
     }
+    
 
     public void eliminatePeashooter(int i) {
-        int j = contador;
-        peashooters[j - 1] = null;
+        peashooters[i] = null;
         if (contador > 1) {
-            while (j > i) {
-                peashooters[j - 1] = peashooters[j];
-                j--;
+            while (i < contador) {
+                peashooters[i] = peashooters[i+1];
+                i++;
             }
         }
         contador--;
