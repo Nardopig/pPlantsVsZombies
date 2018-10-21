@@ -40,25 +40,24 @@ public class Controller {
                 game.cycleCount++;
             }
         }
-        	System.out.println("Game Over");
-        	if (game.computerWon())
-        		System.out.println("Player wins!");
-        	else if(game.userWon())
-        		System.out.println("Computer wins!");
+        System.out.println("Game Over");
+        if (game.computerWon())
+            System.out.println("Player wins!");
+        else if (game.userWon())
+            System.out.println("Computer wins!");
     }
 
     private void comandExe() {
         System.out.print("Command > ");
         String inputLine = in.nextLine().toLowerCase();
 
-        if (inputLine.isEmpty()) {
-            return;
-        }
 
-        StringTokenizer tokenizer = new StringTokenizer(inputLine, " ");
         // delimitador por cada espacio
-        String command = tokenizer.nextToken();
+        StringTokenizer tokenizer = new StringTokenizer(inputLine, " ");
+
         // trozo siguiente del delimitador
+        String command = tokenizer.hasMoreTokens() ? tokenizer.nextToken() : "";
+
         switch (command) {
             case "add":
             case "a":
@@ -80,8 +79,19 @@ public class Controller {
             case "e":
                 exit();
                 break;
+            case "":
+                break;
+            default:
+                badCommand();
 
         }
+    }
+
+    private void badCommand() {
+        System.out.println("Command > Bad command");
+        System.out.println("Unknown command");
+        System.out.println();
+        comandExe();
     }
 
     private void exit() {
@@ -101,7 +111,6 @@ public class Controller {
 
     private void reset() {
         game = new Game(level);
-        game.setLevel(level);
     }
 
     private void list() {
