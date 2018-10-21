@@ -52,9 +52,9 @@ public class Controller {
         }
 
         StringTokenizer tokenizer = new StringTokenizer(inputLine, " ");
-
+        // delimitador por cada espacio
         String command = tokenizer.nextToken();
-
+        // trozo siguiente del delimitador
         switch (command) {
             case "add":
             case "a":
